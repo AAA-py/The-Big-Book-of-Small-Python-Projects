@@ -73,13 +73,21 @@ while game_start:
 
          if l_one == l_two:
             game_start = False
-            countdown = 11
+            countdown = 12
             
          else:
             countdown += 1
     else:
-        if countdown >= 10:
+        if countdown == 11:
             print(f"You ran out of guesses! You lose! The number was {number}")
+            keep_playing =input("Do you want to continue? (Y/N) ").lower()
+            if keep_playing == "n":
+                game_start = False
+            elif keep_playing == "y":
+                game_start = True
+                countdown = 1
+                number = generate_random_number()
+        elif countdown == 12:
             keep_playing =input("Do you want to continue? (Y/N) ").lower()
             if keep_playing == "n":
                 game_start = False
